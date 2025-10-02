@@ -347,8 +347,9 @@ This object is not an AABBTree.
 
 ### Blacklist
 
-Do not use or look at any of the following functions. Work out geometric
-derivations by hand rather than googling for a solution. Always cite online
+Do not use or look at any of the following functions. Try to always work out geometric
+derivations by hand first before googling for a solution, and try to look for *mathematical* solutions and implement those instead of directly googling for code.
+**Always** cite online
 references as per academic honesty policies.
 
  - `Eigen::AlignedBox`
