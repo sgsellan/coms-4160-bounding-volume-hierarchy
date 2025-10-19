@@ -33,6 +33,7 @@ int main(int argc, char * argv[])
   tic(); // Start the clock!
   std::vector<std::pair<int, int> > bf_pairs;
   // Brute force
+  int num_intersections = 0;
   for(int fa = 0;fa<FA.rows();fa++)
   {
     for(int fb = 0;fb<FB.rows();fb++)
@@ -46,6 +47,7 @@ int main(int argc, char * argv[])
           VB.row(FB(fb,2))))
       {
         bf_pairs.emplace_back(fa,fb);
+        num_intersections++;
       }
     }
   }
@@ -105,6 +107,8 @@ int main(int argc, char * argv[])
   // See if lists match
   diff_and_warn(  bf_pairs,"brute force",tree_pairs,"tree");
   diff_and_warn(tree_pairs,"tree",       bf_pairs,  "brute force");
+
+  std::cout << "  Number of intersecting pairs: " << num_intersections << std::endl<<std::endl;
 
   visualize_aabbtree(VA,FA,VB,FB,leaf_pairs);
 }

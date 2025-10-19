@@ -89,6 +89,7 @@ int main(int argc, char * argv[])
   }
 
   // Check that solutions match.
+  int num_hits = 0;
   for(int r = 0;r<rays.size();r++)
   {
     WARN_IF_NOT_EQUAL(bf_hit,tree_hit,r);
@@ -96,8 +97,10 @@ int main(int argc, char * argv[])
     {
       WARN_IF_NOT_APPROX(bf_t,tree_t,r);
       WARN_IF_NOT_EQUAL(bf_I,tree_I,r);
+      num_hits++;
     }
   }
+  std::cout << "  Number of hits: " << num_hits << " out of " << rays.size() << std::endl<<std::endl;
 
   // Visualize the tree
   visualize_aabbtree(V,F,root);
